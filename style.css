@@ -1,10 +1,15 @@
 
+.tictactoe-game {
+    display: flex;
+    justify-content: space-around;
+}
+
 .wrapper {
     width: 450px;
-    margin: auto;
     text-align: center;
     font-family: 'Lacquer';
     font-size: 22px;
+    margin: 30px;
 }
 
 .game-main {
@@ -30,4 +35,25 @@ button {
 
 button:hover {
     opacity: .8;
+}
+
+.score {
+    margin: 30px;
+    font-family: 'Lacquer';
+    margin-top: 150px;
+    text-align: center;
+}
+
+#game-score {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(2, 150px);
+}
+
+
+.score-display {
+    border: 1px solid #ddd;
+    font-size: 28px;
+    padding: 30px;
+    text-align: center;
 }

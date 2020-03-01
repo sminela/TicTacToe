@@ -9,6 +9,7 @@
     <link rel='stylesheet' href='style.css'>
 </head>
 <body>
+    <div class="tictactoe-game">
     <div class="wrapper">
         <h1>Tic Tac Toe</h1>
         <div class="game-main">
@@ -25,6 +26,16 @@
         <h2 id="game-display"></h2>
         <button onclick = "restartGame()">Restart Game</button>
     </div>
+    <div class="score">
+        <h2>Rezultat igrice: </h2>
+        <div id="game-score">
+            <p class="score-display">Igrac X</p>
+            <p class="score-display" id="x-score"></p>
+            <p class="score-display">Igrac 0</p>
+            <p class="score-display" id="o-score"></p>
+        </div>
+    </div>
+</div>
     
     
     <script src='script.js'></script>

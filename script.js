@@ -17,6 +17,9 @@ var gameRules = [
     [2, 4, 6]
 ];
 
+var xWin = 0;
+var oWin = 0;
+
 for(const cell of allCells) {
     cell.addEventListener('click', cellClicked);
 }
@@ -40,8 +43,10 @@ function cellClicked (event) {
 
 function handleCellSelected (cellSelected, cellIndex) {
     // Logika za popunjavanje gameState
-    cellSelected.innerHTML = currentPlayer;
-    gameState [cellIndex] = currentPlayer;
+        cellSelected.innerHTML = currentPlayer;
+      
+        gameState [cellIndex] = currentPlayer;
+        
 }
 
 function handleGameRules() {
@@ -58,16 +63,39 @@ function handleGameRules() {
 
         if(a === b && b === c) {
             won = true;
+
+            /*if(currentPlayer === 'X') {
+                xWin += 1;
+                var xWinPlaceHolder = document.getElementById('x-score');
+                xWinPlaceHolder.innerHTML = xWin;
+            }
+
+            else if (currentPlayer === '0') {
+                oWin += 1;
+                var oWinPlaceHolder = document.getElementById('o-score');
+                oWinPlaceHolder.innerHTML = oWin;
+            }*/
             break;
-        }
-           
+        }     
     }
 
-    if(won) {
+    if(won && currentPlayer === 'X') {
         gameDisplay.innerHTML = winMessage();
         gameActive = false;
+        xWin += 1;
+        var xWinPlaceHolder = document.getElementById('x-score');
+        xWinPlaceHolder.innerHTML = xWin;
         return;
-    }
+    } 
+
+    else if(won && currentPlayer === '0') {
+        gameDisplay.innerHTML = winMessage();
+        gameActive = false;
+        oWin += 1;
+        var oWinPlaceHolder = document.getElementById('o-score');
+        oWinPlaceHolder.innerHTML = oWin;
+        return;
+    } 
 
     var draw = !gameState.includes('');
 
